@@ -1,11 +1,19 @@
 aid: helidon
 name: Helidon
 description: >-
-  Helidon is a set of Java libraries for writing microservices from Oracle that runs on GraalVM and supports MicroProfile and reactive APIs.
+  Helidon is a collection of Java libraries from Oracle for writing
+  microservices that run on a fast web core powered by Netty, supporting
+  MicroProfile and reactive programming models.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Microservices
+  - Java
+  - Cloud Native
+  - Oracle
+  - MicroProfile
+  - Reactive
+  - Frameworks
 url: >-
   https://raw.githubusercontent.com/api-evangelist/helidon/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -15,14 +23,34 @@ apis:
   - aid: helidon:helidon
     name: Helidon
     description: >-
-      Helidon is a set of Java libraries for writing microservices from Oracle that runs on GraalVM and supports MicroProfile and reactive APIs.
-    humanURL: https://github.com/api-evangelist/helidon
+      Helidon is a collection of Java libraries from Oracle for writing
+      microservices that run on a fast web core powered by Netty, supporting
+      MicroProfile and reactive programming models.
+    humanURL: https://helidon.io/
     tags:
       - Microservices
-    properties: []
+      - Java
+      - Cloud Native
+      - Oracle
+      - MicroProfile
+      - Reactive
+      - Frameworks
+    properties:
+      - type: Documentation
+        url: https://helidon.io/docs/latest
+      - type: Getting Started
+        url: https://helidon.io/docs/latest/#/about/prerequisites
 common:
   - type: Website
-    url: https://github.com/api-evangelist/helidon
+    url: https://helidon.io/
+  - type: Documentation
+    url: https://helidon.io/docs/latest
+  - type: Getting Started
+    url: https://helidon.io/docs/latest/#/about/prerequisites
+  - type: GitHub Organization
+    url: https://github.com/helidon-io
+  - type: Blog
+    url: https://medium.com/helidon
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
