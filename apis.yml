@@ -1,0 +1,28 @@
+aid: helidon
+name: Helidon
+description: >-
+  Helidon is a set of Java libraries for writing microservices from Oracle that runs on GraalVM and supports MicroProfile and reactive APIs.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Microservices
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/helidon/refs/heads/main/apis.yml
+created: '2026-03-26'
+modified: '2026-03-26'
+specificationVersion: '0.19'
+apis:
+  - aid: helidon:helidon
+    name: Helidon
+    description: >-
+      Helidon is a set of Java libraries for writing microservices from Oracle that runs on GraalVM and supports MicroProfile and reactive APIs.
+    humanURL: https://github.com/api-evangelist/helidon
+    tags:
+      - Microservices
+    properties: []
+common:
+  - type: Website
+    url: https://github.com/api-evangelist/helidon
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
