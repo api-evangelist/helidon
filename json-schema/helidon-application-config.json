@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/helidon/json-schema/helidon-application-config.json",
+  "title": "Helidon Application Configuration",
+  "description": "JSON Schema for Helidon application configuration (application.yaml / microprofile-config.properties). Covers server, security, datasource, metrics, health, tracing, and WebServer settings for both Helidon SE and MP.",
+  "type": "object",
+  "properties": {
+    "server": {
+      "type": "object",
+      "description": "Helidon WebServer configuration",
+      "properties": {
+        "host": {
+          "type": "string",
+          "default": "0.0.0.0",
+          "description": "Server listen host"
+        },
+        "port": {
+          "type": "integer",
+          "default": 8080,
+          "description": "Server listen port"
+        },
+        "backlog": {
+          "type": "integer",
+          "default": 1024,
+          "description": "Server socket backlog"
+        },
+        "max-header-size": {
+          "type": "integer",
+          "default": 16384,
+          "description": "Maximum header size in bytes"
+        },
+        "max-initial-line-length": {
+          "type": "integer",
+          "default": 4096
+        },
+        "max-payload-size": {
+          "type": "integer",
+          "description": "Maximum payload size in bytes"
+        },
+        "idle-connection-timeout-seconds": {
+          "type": "integer",
+          "default": 0,
+          "description": "Idle connection timeout (0 for unlimited)"
+        },
+        "tls": {
+          "type": "object",
+          "properties": {
+            "private-key": {
+              "type": "object",
+              "properties": {
+                "keystore": {
+                  "type": "object",
+                  "properties": {
+                    "resource": {
+                      "type": "object",
+                      "properties": {
+                        "resource-path": { "type": "string" }
+                      }
+                    },
+                    "passphrase": { "type": "string" },
+                    "type": { "type": "string", "default": "PKCS12" }
+                  }
+                }
+              }
+            },
+            "trust": {
+              "type": "object",
+              "properties": {
+                "keystore": {
+                  "type": "object",
+                  "properties": {
+                    "resource": {
+                      "type": "object",
+                      "properties": {
+                        "resource-path": { "type": "string" }
+                      }
+                    },
+                    "passphrase": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "static": {
+          "type": "object",
+          "properties": {
+            "classpath": {
+              "type": "object",
+              "properties": {
+                "location": { "type": "string" },
+                "context": { "type": "string" }
+              }
+            }
+          }
+        },
+        "features": {
+          "type": "object",
+          "properties": {
+            "print-details": { "type": "boolean", "default": false }
+          }
+        }
+      }
+    },
+    "security": {
+      "type": "object",
+      "description": "Helidon Security configuration",
+      "properties": {
+        "providers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "description": "Ordered list of security providers"
+        },
+        "config": {
+          "type": "object",
+          "properties": {
+            "require-encryption": { "type": "boolean", "default": true },
+            "require-authentication": { "type": "boolean", "default": false },
+            "require-authorization": { "type": "boolean", "default": false }
+          }
+        },
+        "web-server": {
+          "type": "object",
+          "properties": {
+            "defaults": {
+              "type": "object",
+              "properties": {
+                "authenticate": { "type": "boolean" },
+                "authorize": { "type": "boolean" }
+              }
+            },
+            "paths": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "path": { "type": "string" },
+                  "methods": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "authenticate": { "type": "boolean" },
+                  "authorize": { "type": "boolean" },
+                  "roles-allowed": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "javax.sql.DataSource": {
+      "type": "object",
+      "description": "JDBC DataSource configuration (Helidon MP)",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "dataSourceClassName": { "type": "string" },
+          "dataSource": {
+            "type": "object",
+            "properties": {
+              "url": { "type": "string" },
+              "user": { "type": "string" },
+              "password": { "type": "string" }
+            }
+          },
+          "maximumPoolSize": { "type": "integer", "default": 10 },
+          "minimumIdle": { "type": "integer" }
+        }
+      }
+    },
+    "tracing": {
+      "type": "object",
+      "description": "Distributed tracing configuration",
+      "properties": {
+        "service": {
+          "type": "string",
+          "description": "Service name for tracing"
+        },
+        "protocol": { "type": "string" },
+        "host": { "type": "string" },
+        "port": { "type": "integer" },
+        "path": { "type": "string" },
+        "enabled": { "type": "boolean", "default": true },
+        "sampler-type": {
+          "type": "string",
+          "enum": ["const", "probabilistic", "rate-limiting", "remote"]
+        },
+        "sampler-param": { "type": "number" }
+      }
+    },
+    "mp": {
+      "type": "object",
+      "description": "MicroProfile configuration",
+      "properties": {
+        "metrics": {
+          "type": "object",
+          "properties": {
+            "tags": {
+              "type": "string",
+              "description": "Global tags in key=value,key=value format"
+            },
+            "appName": { "type": "string" }
+          }
+        },
+        "openapi": {
+          "type": "object",
+          "properties": {
+            "filter": { "type": "string" },
+            "model": {
+              "type": "object",
+              "properties": {
+                "reader": { "type": "string" }
+              }
+            },
+            "scan": {
+              "type": "object",
+              "properties": {
+                "disable": { "type": "boolean", "default": false },
+                "packages": { "type": "string" },
+                "classes": { "type": "string" }
+              }
+            }
+          }
+        },
+        "jwt": {
+          "type": "object",
+          "properties": {
+            "verify": {
+              "type": "object",
+              "properties": {
+                "publickey": {
+                  "type": "object",
+                  "properties": {
+                    "location": { "type": "string" }
+                  }
+                },
+                "issuer": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -40,6 +40,10 @@ apis:
         url: https://helidon.io/docs/latest
       - type: Getting Started
         url: https://helidon.io/docs/latest/#/about/prerequisites
+      - type: JSONSchema
+        url: json-schema/helidon-application-config.json
+      - type: OpenAPI
+        url: openapi/helidon-observe-openapi.yml
 common:
   - type: Website
     url: https://helidon.io/

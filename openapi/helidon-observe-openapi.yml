@@ -1,0 +1,222 @@
+openapi: 3.0.3
+info:
+  title: Helidon Observe (Health & Metrics) API
+  description: >-
+    Helidon provides built-in observability endpoints following the MicroProfile
+    Health and MicroProfile Metrics specifications. These endpoints expose
+    application health status, readiness, liveness, startup checks, and
+    application/vendor/base metrics. In Helidon 4.x, these are served under
+    the /observe path by default.
+  version: 4.1.0
+  contact:
+    name: Helidon Team
+    url: https://helidon.io/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: http://localhost:8080
+    description: Default Helidon server
+paths:
+  /observe/health:
+    get:
+      operationId: getHealth
+      summary: Overall health status
+      description: Returns aggregate health check results from all registered health checks
+      tags:
+        - Health
+      responses:
+        '200':
+          description: All health checks pass
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+        '503':
+          description: One or more health checks failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+  /observe/health/live:
+    get:
+      operationId: getLiveness
+      summary: Liveness check
+      description: Returns liveness health check results (for Kubernetes liveness probes)
+      tags:
+        - Health
+      responses:
+        '200':
+          description: Application is live
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+        '503':
+          description: Application is not live
+  /observe/health/ready:
+    get:
+      operationId: getReadiness
+      summary: Readiness check
+      description: Returns readiness health check results (for Kubernetes readiness probes)
+      tags:
+        - Health
+      responses:
+        '200':
+          description: Application is ready
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+        '503':
+          description: Application is not ready
+  /observe/health/started:
+    get:
+      operationId: getStartup
+      summary: Startup check
+      description: Returns startup health check results (for Kubernetes startup probes)
+      tags:
+        - Health
+      responses:
+        '200':
+          description: Application has started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+        '503':
+          description: Application has not started
+  /observe/metrics:
+    get:
+      operationId: getMetrics
+      summary: All metrics
+      description: Returns all application, vendor, and base metrics in Prometheus or JSON format
+      tags:
+        - Metrics
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+            enum:
+              - application/json
+              - text/plain
+          description: Response format (text/plain for Prometheus, application/json for JSON)
+      responses:
+        '200':
+          description: All metrics
+          content:
+            text/plain:
+              schema:
+                type: string
+                description: Prometheus exposition format
+            application/json:
+              schema:
+                type: object
+  /observe/metrics/application:
+    get:
+      operationId: getApplicationMetrics
+      summary: Application metrics
+      description: Returns application-scoped metrics
+      tags:
+        - Metrics
+      responses:
+        '200':
+          description: Application metrics
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
+  /observe/metrics/vendor:
+    get:
+      operationId: getVendorMetrics
+      summary: Vendor metrics
+      description: Returns vendor-specific metrics
+      tags:
+        - Metrics
+      responses:
+        '200':
+          description: Vendor metrics
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
+  /observe/metrics/base:
+    get:
+      operationId: getBaseMetrics
+      summary: Base metrics
+      description: Returns MicroProfile base metrics (JVM, thread, classloader, etc.)
+      tags:
+        - Metrics
+      responses:
+        '200':
+          description: Base metrics
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
+  /observe/info:
+    get:
+      operationId: getInfo
+      summary: Application info
+      description: Returns application build and runtime information
+      tags:
+        - Info
+      responses:
+        '200':
+          description: Application info
+          content:
+            application/json:
+              schema:
+                type: object
+  /openapi:
+    get:
+      operationId: getOpenAPI
+      summary: OpenAPI document
+      description: Returns the MicroProfile OpenAPI document for the application
+      tags:
+        - OpenAPI
+      responses:
+        '200':
+          description: OpenAPI specification
+          content:
+            application/yaml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    HealthCheckResponse:
+      type: object
+      description: MicroProfile Health response
+      properties:
+        status:
+          type: string
+          enum: [UP, DOWN]
+          description: Aggregate health status
+        checks:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Health check name
+              status:
+                type: string
+                enum: [UP, DOWN]
+              data:
+                type: object
+                additionalProperties: true
+                description: Additional health check data
