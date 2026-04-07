@@ -21,7 +21,7 @@ paths:
   /observe/health:
     get:
       operationId: getHealth
-      summary: Overall health status
+      summary: Helidon Overall health status
       description: Returns aggregate health check results from all registered health checks
       tags:
         - Health
@@ -41,7 +41,7 @@ paths:
   /observe/health/live:
     get:
       operationId: getLiveness
-      summary: Liveness check
+      summary: Helidon Liveness check
       description: Returns liveness health check results (for Kubernetes liveness probes)
       tags:
         - Health
@@ -57,7 +57,7 @@ paths:
   /observe/health/ready:
     get:
       operationId: getReadiness
-      summary: Readiness check
+      summary: Helidon Readiness check
       description: Returns readiness health check results (for Kubernetes readiness probes)
       tags:
         - Health
@@ -73,7 +73,7 @@ paths:
   /observe/health/started:
     get:
       operationId: getStartup
-      summary: Startup check
+      summary: Helidon Startup check
       description: Returns startup health check results (for Kubernetes startup probes)
       tags:
         - Health
@@ -89,7 +89,7 @@ paths:
   /observe/metrics:
     get:
       operationId: getMetrics
-      summary: All metrics
+      summary: Helidon All metrics
       description: Returns all application, vendor, and base metrics in Prometheus or JSON format
       tags:
         - Metrics
@@ -116,7 +116,7 @@ paths:
   /observe/metrics/application:
     get:
       operationId: getApplicationMetrics
-      summary: Application metrics
+      summary: Helidon Application metrics
       description: Returns application-scoped metrics
       tags:
         - Metrics
@@ -133,7 +133,7 @@ paths:
   /observe/metrics/vendor:
     get:
       operationId: getVendorMetrics
-      summary: Vendor metrics
+      summary: Helidon Vendor metrics
       description: Returns vendor-specific metrics
       tags:
         - Metrics
@@ -150,7 +150,7 @@ paths:
   /observe/metrics/base:
     get:
       operationId: getBaseMetrics
-      summary: Base metrics
+      summary: Helidon Base metrics
       description: Returns MicroProfile base metrics (JVM, thread, classloader, etc.)
       tags:
         - Metrics
@@ -167,7 +167,7 @@ paths:
   /observe/info:
     get:
       operationId: getInfo
-      summary: Application info
+      summary: Helidon Application info
       description: Returns application build and runtime information
       tags:
         - Info
@@ -181,7 +181,7 @@ paths:
   /openapi:
     get:
       operationId: getOpenAPI
-      summary: OpenAPI document
+      summary: Helidon OpenAPI document
       description: Returns the MicroProfile OpenAPI document for the application
       tags:
         - OpenAPI
