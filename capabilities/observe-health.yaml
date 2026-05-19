@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Helidon Observe (Health & Metrics) API — Health
+  description: 'Helidon Observe (Health & Metrics) API — Health. 4 operations. Lead operation: Helidon Overall health status.
+    Self-contained Naftiko capability covering one Helidon business surface.'
+  tags:
+  - Helidon
+  - Health
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    HELIDON_API_KEY: HELIDON_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: observe-health
+    baseUri: http://localhost:8080
+    description: Helidon Observe (Health & Metrics) API — Health business capability. Self-contained, no shared references.
+    resources:
+    - name: observe-health
+      path: /observe/health
+      operations:
+      - name: gethealth
+        method: GET
+        description: Helidon Overall health status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: observe-health-live
+      path: /observe/health/live
+      operations:
+      - name: getliveness
+        method: GET
+        description: Helidon Liveness check
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: observe-health-ready
+      path: /observe/health/ready
+      operations:
+      - name: getreadiness
+        method: GET
+        description: Helidon Readiness check
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: observe-health-started
+      path: /observe/health/started
+      operations:
+      - name: getstartup
+        method: GET
+        description: Helidon Startup check
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: observe-health-rest
+    port: 8080
+    description: REST adapter for Helidon Observe (Health & Metrics) API — Health. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/observe/health
+      name: observe-health
+      description: REST surface for observe-health.
+      operations:
+      - method: GET
+        name: gethealth
+        description: Helidon Overall health status
+        call: observe-health.gethealth
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/observe/health/live
+      name: observe-health-live
+      description: REST surface for observe-health-live.
+      operations:
+      - method: GET
+        name: getliveness
+        description: Helidon Liveness check
+        call: observe-health.getliveness
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/observe/health/ready
+      name: observe-health-ready
+      description: REST surface for observe-health-ready.
+      operations:
+      - method: GET
+        name: getreadiness
+        description: Helidon Readiness check
+        call: observe-health.getreadiness
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/observe/health/started
+      name: observe-health-started
+      description: REST surface for observe-health-started.
+      operations:
+      - method: GET
+        name: getstartup
+        description: Helidon Startup check
+        call: observe-health.getstartup
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: observe-health-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Helidon Observe (Health & Metrics) API — Health. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: helidon-overall-health-status
+      description: Helidon Overall health status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: observe-health.gethealth
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: helidon-liveness-check
+      description: Helidon Liveness check
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: observe-health.getliveness
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: helidon-readiness-check
+      description: Helidon Readiness check
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: observe-health.getreadiness
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: helidon-startup-check
+      description: Helidon Startup check
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: observe-health.getstartup
+      outputParameters:
+      - type: object
+        mapping: $.

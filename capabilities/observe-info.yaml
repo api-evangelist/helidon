@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Helidon Observe (Health & Metrics) API — Info
+  description: 'Helidon Observe (Health & Metrics) API — Info. 1 operations. Lead operation: Helidon Application info. Self-contained
+    Naftiko capability covering one Helidon business surface.'
+  tags:
+  - Helidon
+  - Info
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    HELIDON_API_KEY: HELIDON_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: observe-info
+    baseUri: http://localhost:8080
+    description: Helidon Observe (Health & Metrics) API — Info business capability. Self-contained, no shared references.
+    resources:
+    - name: observe-info
+      path: /observe/info
+      operations:
+      - name: getinfo
+        method: GET
+        description: Helidon Application info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: observe-info-rest
+    port: 8080
+    description: REST adapter for Helidon Observe (Health & Metrics) API — Info. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/observe/info
+      name: observe-info
+      description: REST surface for observe-info.
+      operations:
+      - method: GET
+        name: getinfo
+        description: Helidon Application info
+        call: observe-info.getinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: observe-info-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Helidon Observe (Health & Metrics) API — Info. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: helidon-application-info
+      description: Helidon Application info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: observe-info.getinfo
+      outputParameters:
+      - type: object
+        mapping: $.

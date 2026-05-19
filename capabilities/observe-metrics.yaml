@@ -1,0 +1,172 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Helidon Observe (Health & Metrics) API — Metrics
+  description: 'Helidon Observe (Health & Metrics) API — Metrics. 4 operations. Lead operation: Helidon All metrics. Self-contained
+    Naftiko capability covering one Helidon business surface.'
+  tags:
+  - Helidon
+  - Metrics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    HELIDON_API_KEY: HELIDON_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: observe-metrics
+    baseUri: http://localhost:8080
+    description: Helidon Observe (Health & Metrics) API — Metrics business capability. Self-contained, no shared references.
+    resources:
+    - name: observe-metrics
+      path: /observe/metrics
+      operations:
+      - name: getmetrics
+        method: GET
+        description: Helidon All metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Accept
+          in: header
+          type: string
+          description: Response format (text/plain for Prometheus, application/json for JSON)
+    - name: observe-metrics-application
+      path: /observe/metrics/application
+      operations:
+      - name: getapplicationmetrics
+        method: GET
+        description: Helidon Application metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: observe-metrics-base
+      path: /observe/metrics/base
+      operations:
+      - name: getbasemetrics
+        method: GET
+        description: Helidon Base metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: observe-metrics-vendor
+      path: /observe/metrics/vendor
+      operations:
+      - name: getvendormetrics
+        method: GET
+        description: Helidon Vendor metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: observe-metrics-rest
+    port: 8080
+    description: REST adapter for Helidon Observe (Health & Metrics) API — Metrics. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/observe/metrics
+      name: observe-metrics
+      description: REST surface for observe-metrics.
+      operations:
+      - method: GET
+        name: getmetrics
+        description: Helidon All metrics
+        call: observe-metrics.getmetrics
+        with:
+          Accept: rest.Accept
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/observe/metrics/application
+      name: observe-metrics-application
+      description: REST surface for observe-metrics-application.
+      operations:
+      - method: GET
+        name: getapplicationmetrics
+        description: Helidon Application metrics
+        call: observe-metrics.getapplicationmetrics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/observe/metrics/base
+      name: observe-metrics-base
+      description: REST surface for observe-metrics-base.
+      operations:
+      - method: GET
+        name: getbasemetrics
+        description: Helidon Base metrics
+        call: observe-metrics.getbasemetrics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/observe/metrics/vendor
+      name: observe-metrics-vendor
+      description: REST surface for observe-metrics-vendor.
+      operations:
+      - method: GET
+        name: getvendormetrics
+        description: Helidon Vendor metrics
+        call: observe-metrics.getvendormetrics
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: observe-metrics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Helidon Observe (Health & Metrics) API — Metrics. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: helidon-all-metrics
+      description: Helidon All metrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: observe-metrics.getmetrics
+      with:
+        Accept: tools.Accept
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: helidon-application-metrics
+      description: Helidon Application metrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: observe-metrics.getapplicationmetrics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: helidon-base-metrics
+      description: Helidon Base metrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: observe-metrics.getbasemetrics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: helidon-vendor-metrics
+      description: Helidon Vendor metrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: observe-metrics.getvendormetrics
+      outputParameters:
+      - type: object
+        mapping: $.
