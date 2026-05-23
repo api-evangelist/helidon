@@ -58,6 +58,9 @@ common:
   url: https://github.com/helidon-io
 - type: Blog
   url: https://medium.com/helidon
+- url: https://medium.com/feed/helidon
+  type: BlogRSS
+  description: Discovered RSS/Atom feed for https://medium.com/helidon
 - name: MCP Server
   url: https://github.com/helidon-io/helidon-mcp
   type: MCPServer
