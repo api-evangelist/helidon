@@ -1,6 +1,21 @@
 {
   "repo": "helidon",
-  "feeds": [],
-  "fetched": "2026-05-17T20:48:52Z",
+  "feeds": [
+    {
+      "source": "https://github.com/helidon-io",
+      "feed_url": "https://github.com/helidon-io",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://medium.com/feed/helidon",
+      "feed_url": "https://medium.com/feed/helidon",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    }
+  ],
+  "fetched": "2026-06-01T23:35:02Z",
   "post_count": 0
 }
