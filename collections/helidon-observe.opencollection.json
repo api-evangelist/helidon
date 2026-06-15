@@ -1,0 +1,158 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Helidon Observe (Health & Metrics) API",
+    "version": "4.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Helidon Overall health status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/health"
+          },
+          "docs": "Returns aggregate health check results from all registered health checks"
+        },
+        {
+          "info": {
+            "name": "Helidon Liveness check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/health/live"
+          },
+          "docs": "Returns liveness health check results (for Kubernetes liveness probes)"
+        },
+        {
+          "info": {
+            "name": "Helidon Readiness check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/health/ready"
+          },
+          "docs": "Returns readiness health check results (for Kubernetes readiness probes)"
+        },
+        {
+          "info": {
+            "name": "Helidon Startup check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/health/started"
+          },
+          "docs": "Returns startup health check results (for Kubernetes startup probes)"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Helidon All metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/metrics",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns all application, vendor, and base metrics in Prometheus or JSON format"
+        },
+        {
+          "info": {
+            "name": "Helidon Application metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/metrics/application"
+          },
+          "docs": "Returns application-scoped metrics"
+        },
+        {
+          "info": {
+            "name": "Helidon Vendor metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/metrics/vendor"
+          },
+          "docs": "Returns vendor-specific metrics"
+        },
+        {
+          "info": {
+            "name": "Helidon Base metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/metrics/base"
+          },
+          "docs": "Returns MicroProfile base metrics (JVM, thread, classloader, etc.)"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Helidon Application info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/info"
+          },
+          "docs": "Returns application build and runtime information"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "OpenAPI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Helidon OpenAPI document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/openapi"
+          },
+          "docs": "Returns the MicroProfile OpenAPI document for the application"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
