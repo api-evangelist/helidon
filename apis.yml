@@ -4,7 +4,7 @@ description: >-
   Helidon is a collection of Java libraries from Oracle for writing microservices that run on a fast web core powered by
   Netty, supporting MicroProfile and reactive programming models.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Cloud Native
   - Frameworks
