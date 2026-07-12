@@ -42,6 +42,8 @@ apis:
       - type: OpenAPI
         url: openapi/helidon-observe-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/helidon-domain-security.yml
   - type: Website
     url: https://helidon.io/
   - type: Documentation
