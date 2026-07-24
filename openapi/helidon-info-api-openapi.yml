@@ -1,0 +1,31 @@
+openapi: 3.0.3
+info:
+  title: Helidon Observe ( & Metrics) Health Info API
+  description: Helidon provides built-in observability endpoints following the MicroProfile Health and MicroProfile Metrics specifications. These endpoints expose application health status, readiness, liveness, startup checks, and application/vendor/base metrics. In Helidon 4.x, these are served under the /observe path by default.
+  version: 4.1.0
+  contact:
+    name: Helidon Team
+    url: https://helidon.io/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080
+  description: Default Helidon server
+tags:
+- name: Info
+paths:
+  /observe/info:
+    get:
+      operationId: getInfo
+      summary: Helidon Application info
+      description: Returns application build and runtime information
+      tags:
+      - Info
+      responses:
+        '200':
+          description: Application info
+          content:
+            application/json:
+              schema:
+                type: object

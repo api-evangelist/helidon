@@ -1,0 +1,95 @@
+openapi: 3.0.3
+info:
+  title: Helidon Observe ( & ) Health Metrics API
+  description: Helidon provides built-in observability endpoints following the MicroProfile Health and MicroProfile Metrics specifications. These endpoints expose application health status, readiness, liveness, startup checks, and application/vendor/base metrics. In Helidon 4.x, these are served under the /observe path by default.
+  version: 4.1.0
+  contact:
+    name: Helidon Team
+    url: https://helidon.io/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080
+  description: Default Helidon server
+tags:
+- name: Metrics
+paths:
+  /observe/metrics:
+    get:
+      operationId: getMetrics
+      summary: Helidon All metrics
+      description: Returns all application, vendor, and base metrics in Prometheus or JSON format
+      tags:
+      - Metrics
+      parameters:
+      - name: Accept
+        in: header
+        schema:
+          type: string
+          enum:
+          - application/json
+          - text/plain
+        description: Response format (text/plain for Prometheus, application/json for JSON)
+      responses:
+        '200':
+          description: All metrics
+          content:
+            text/plain:
+              schema:
+                type: string
+                description: Prometheus exposition format
+            application/json:
+              schema:
+                type: object
+  /observe/metrics/application:
+    get:
+      operationId: getApplicationMetrics
+      summary: Helidon Application metrics
+      description: Returns application-scoped metrics
+      tags:
+      - Metrics
+      responses:
+        '200':
+          description: Application metrics
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
+  /observe/metrics/vendor:
+    get:
+      operationId: getVendorMetrics
+      summary: Helidon Vendor metrics
+      description: Returns vendor-specific metrics
+      tags:
+      - Metrics
+      responses:
+        '200':
+          description: Vendor metrics
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
+  /observe/metrics/base:
+    get:
+      operationId: getBaseMetrics
+      summary: Helidon Base metrics
+      description: Returns MicroProfile base metrics (JVM, thread, classloader, etc.)
+      tags:
+      - Metrics
+      responses:
+        '200':
+          description: Base metrics
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
