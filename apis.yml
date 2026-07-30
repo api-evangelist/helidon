@@ -4,7 +4,19 @@ description: >-
   Helidon is a collection of Java libraries from Oracle for writing microservices that run on a fast web core powered by
   Netty, supporting MicroProfile and reactive programming models.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/helidon.png
 tags:
   - Cloud Native
   - Frameworks
@@ -18,29 +30,66 @@ created: '2026-03-26'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: helidon:helidon
-    name: Helidon
-    description: >-
-      Helidon is a collection of Java libraries from Oracle for writing microservices that run on a fast web core
-      powered by Netty, supporting MicroProfile and reactive programming models.
-    humanURL: https://helidon.io/
-    tags:
-      - Cloud Native
-      - Frameworks
-      - Java
-      - MicroProfile
-      - Microservices
-      - Oracle
-      - Reactive
-    properties:
-      - type: Documentation
-        url: https://helidon.io/docs/latest
-      - type: GettingStarted
-        url: https://helidon.io/docs/latest/#/about/prerequisites
-      - type: JSONSchema
-        url: json-schema/helidon-application-config.json
-      - type: OpenAPI
-        url: openapi/helidon-observe-openapi.yml
+- aid: helidon:helidon-health-api
+  name: Helidon Health API
+  description: The Health API from Helidon — 4 operation(s) for health.
+  humanURL: https://helidon.io/
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/helidon-health-api-openapi.yml
+  - type: Documentation
+    url: https://helidon.io/docs/latest
+  - type: GettingStarted
+    url: https://helidon.io/docs/latest/#/about/prerequisites
+  - type: JSONSchema
+    url: json-schema/helidon-application-config.json
+- aid: helidon:helidon-info-api
+  name: Helidon Info API
+  description: The Info API from Helidon — 1 operation(s) for info.
+  humanURL: https://helidon.io/
+  tags:
+  - Info
+  properties:
+  - type: OpenAPI
+    url: openapi/helidon-info-api-openapi.yml
+  - type: Documentation
+    url: https://helidon.io/docs/latest
+  - type: GettingStarted
+    url: https://helidon.io/docs/latest/#/about/prerequisites
+  - type: JSONSchema
+    url: json-schema/helidon-application-config.json
+- aid: helidon:helidon-metrics-api
+  name: Helidon Metrics API
+  description: The Metrics API from Helidon — 4 operation(s) for metrics.
+  humanURL: https://helidon.io/
+  tags:
+  - Metrics
+  properties:
+  - type: OpenAPI
+    url: openapi/helidon-metrics-api-openapi.yml
+  - type: Documentation
+    url: https://helidon.io/docs/latest
+  - type: GettingStarted
+    url: https://helidon.io/docs/latest/#/about/prerequisites
+  - type: JSONSchema
+    url: json-schema/helidon-application-config.json
+- aid: helidon:helidon-openapi-api
+  name: Helidon OpenAPI API
+  description: The OpenAPI API from Helidon — 1 operation(s) for openapi.
+  humanURL: https://helidon.io/
+  tags:
+  - OpenAPI
+  properties:
+  - type: OpenAPI
+    url: openapi/helidon-openapi-api-openapi.yml
+  - type: Documentation
+    url: https://helidon.io/docs/latest
+  - type: GettingStarted
+    url: https://helidon.io/docs/latest/#/about/prerequisites
+  - type: JSONSchema
+    url: json-schema/helidon-application-config.json
 common:
   - type: AgenticAccess
     url: agentic-access/helidon-agentic-access.yml
