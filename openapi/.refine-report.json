@@ -1,0 +1,20 @@
+{
+  "provider": "helidon",
+  "sources": [
+    "helidon-health-api-openapi.yml",
+    "helidon-info-api-openapi.yml",
+    "helidon-metrics-api-openapi.yml",
+    "helidon-openapi-api-openapi.yml"
+  ],
+  "outputs": [
+    "helidon-health-api-openapi.yml",
+    "helidon-info-api-openapi.yml",
+    "helidon-metrics-api-openapi.yml",
+    "helidon-openapi-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
