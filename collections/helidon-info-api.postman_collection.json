@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "cfcc9808-3b83-4a61-b327-eafd7d532b03",
+      "name": "Info",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8b34b366-1317-4fb1-927d-24dc0ce291b5",
+          "name": "Helidon Application info",
+          "request": {
+            "name": "Helidon Application info",
+            "description": {
+              "content": "Returns application build and runtime information",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "observe",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "651f5e3b-acdc-4404-92ca-dd918947caa9",
+              "name": "Application info",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observe",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "26c9ce6d-f9d2-4881-aaf1-b7d8f37a8754",
+    "name": "Helidon Observe ( & Metrics) Health Info API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Helidon provides built-in observability endpoints following the MicroProfile Health and MicroProfile Metrics specifications. These endpoints expose application health status, readiness, liveness, startup checks, and application/vendor/base metrics. In Helidon 4.x, these are served under the /observe path by default.\n\nContact Support:\n Name: Helidon Team",
+      "type": "text/plain"
+    }
+  }
+}

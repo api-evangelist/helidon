@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "07a2b45b-1803-4f6e-8da3-e755a9f194f6",
+      "name": "OpenAPI",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2169803e-639e-44f0-bb9c-3bfbb79a40e1",
+          "name": "Helidon OpenAPI document",
+          "request": {
+            "name": "Helidon OpenAPI document",
+            "description": {
+              "content": "Returns the MicroProfile OpenAPI document for the application",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "openapi"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/yaml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "282e5e1f-dbf7-4a13-a926-6d43ae2d0f69",
+              "name": "OpenAPI specification",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/yaml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c619446a-0741-4708-ba3f-ceaaa762a99d",
+    "name": "Helidon Observe ( & Metrics) Health OpenAPI API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Helidon provides built-in observability endpoints following the MicroProfile Health and MicroProfile Metrics specifications. These endpoints expose application health status, readiness, liveness, startup checks, and application/vendor/base metrics. In Helidon 4.x, these are served under the /observe path by default.\n\nContact Support:\n Name: Helidon Team",
+      "type": "text/plain"
+    }
+  }
+}

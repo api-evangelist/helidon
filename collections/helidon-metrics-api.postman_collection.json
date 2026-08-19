@@ -1,0 +1,332 @@
+{
+  "item": [
+    {
+      "id": "c07c58fd-b521-4766-856d-056cd1d795ca",
+      "name": "Metrics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "731c148f-cf17-484c-be57-1537ec621f0f",
+          "name": "Helidon All metrics",
+          "request": {
+            "name": "Helidon All metrics",
+            "description": {
+              "content": "Returns all application, vendor, and base metrics in Prometheus or JSON format",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "observe",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d89ed6a5-7baa-4146-b373-c803ff978c0e",
+              "name": "All metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observe",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Response format (text/plain for Prometheus, application/json for JSON)",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1854471a-6d5e-4625-88f6-7fb7e9d61bce",
+          "name": "Helidon Application metrics",
+          "request": {
+            "name": "Helidon Application metrics",
+            "description": {
+              "content": "Returns application-scoped metrics",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "observe",
+                "metrics",
+                "application"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fa6d2f08-d1a1-4893-be62-bda13b412938",
+              "name": "Application metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observe",
+                    "metrics",
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f210159-8c68-490a-911c-31598477f99d",
+          "name": "Helidon Vendor metrics",
+          "request": {
+            "name": "Helidon Vendor metrics",
+            "description": {
+              "content": "Returns vendor-specific metrics",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "observe",
+                "metrics",
+                "vendor"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cedc1655-719b-4433-bb6c-43c54590e731",
+              "name": "Vendor metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observe",
+                    "metrics",
+                    "vendor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "170a0880-8867-4dbd-b20e-95e0f88c9f77",
+          "name": "Helidon Base metrics",
+          "request": {
+            "name": "Helidon Base metrics",
+            "description": {
+              "content": "Returns MicroProfile base metrics (JVM, thread, classloader, etc.)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "observe",
+                "metrics",
+                "base"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b2c7a9ad-0a2e-4b76-8333-cdf34880c03f",
+              "name": "Base metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observe",
+                    "metrics",
+                    "base"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6ecf8028-a348-4e39-aaff-a63efb4f341a",
+    "name": "Helidon Observe ( & ) Health Metrics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Helidon provides built-in observability endpoints following the MicroProfile Health and MicroProfile Metrics specifications. These endpoints expose application health status, readiness, liveness, startup checks, and application/vendor/base metrics. In Helidon 4.x, these are served under the /observe path by default.\n\nContact Support:\n Name: Helidon Team",
+      "type": "text/plain"
+    }
+  }
+}

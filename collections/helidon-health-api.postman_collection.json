@@ -1,0 +1,455 @@
+{
+  "item": [
+    {
+      "id": "40f5d4e1-c2de-4f69-8241-92c481e48a70",
+      "name": "Health",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c81562df-d1bb-4d8a-8130-5e8dcea39d9e",
+          "name": "Helidon Overall health status",
+          "request": {
+            "name": "Helidon Overall health status",
+            "description": {
+              "content": "Returns aggregate health check results from all registered health checks",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "observe",
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9056dd3c-cc01-4177-9684-d52aec98a211",
+              "name": "All health checks pass",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observe",
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"DOWN\",\n      \"data\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"DOWN\",\n      \"data\": {\n        \"key_0\": 222.53949575342767,\n        \"key_1\": false,\n        \"key_2\": 9477\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf2adcd1-1d6c-43d9-8741-02ad30af96f8",
+              "name": "One or more health checks failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observe",
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 1423\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 2204,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2053e7e1-7afe-44c2-94c9-1256ae6a629c",
+          "name": "Helidon Liveness check",
+          "request": {
+            "name": "Helidon Liveness check",
+            "description": {
+              "content": "Returns liveness health check results (for Kubernetes liveness probes)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "observe",
+                "health",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fce70227-5a31-4400-ae50-47674d067f05",
+              "name": "Application is live",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observe",
+                    "health",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 1423\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 2204,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6cc353f9-a57f-405c-ad8e-7032072fbc72",
+              "name": "Application is not live",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observe",
+                    "health",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f9c1c7b-b030-428a-b78c-fa6ec0ab1ef4",
+          "name": "Helidon Readiness check",
+          "request": {
+            "name": "Helidon Readiness check",
+            "description": {
+              "content": "Returns readiness health check results (for Kubernetes readiness probes)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "observe",
+                "health",
+                "ready"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d9d62e98-5b5e-42a5-8bad-a4efb7bd9b80",
+              "name": "Application is ready",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observe",
+                    "health",
+                    "ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 1423\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 2204,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "652cf7e6-ad33-4116-b397-1ba6fe450d51",
+              "name": "Application is not ready",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observe",
+                    "health",
+                    "ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "508230b4-6462-4181-bb7d-c029659ca6fa",
+          "name": "Helidon Startup check",
+          "request": {
+            "name": "Helidon Startup check",
+            "description": {
+              "content": "Returns startup health check results (for Kubernetes startup probes)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "observe",
+                "health",
+                "started"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4f40b67-3899-4901-9fc5-e4e2ad7eccdd",
+              "name": "Application has started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observe",
+                    "health",
+                    "started"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 1423\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 2204,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c53dd08-d73a-4bba-8fdc-f5324266a8cd",
+              "name": "Application has not started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "observe",
+                    "health",
+                    "started"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "83e14c7e-b72d-41bc-ba4f-690a78fcb206",
+    "name": "Helidon Observe ( & Metrics) Health API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Helidon provides built-in observability endpoints following the MicroProfile Health and MicroProfile Metrics specifications. These endpoints expose application health status, readiness, liveness, startup checks, and application/vendor/base metrics. In Helidon 4.x, these are served under the /observe path by default.\n\nContact Support:\n Name: Helidon Team",
+      "type": "text/plain"
+    }
+  }
+}

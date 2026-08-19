@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Helidon Observe ( & Metrics) Health API",
+    "version": "4.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Helidon Overall health status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/health"
+          },
+          "docs": "Returns aggregate health check results from all registered health checks"
+        },
+        {
+          "info": {
+            "name": "Helidon Liveness check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/health/live"
+          },
+          "docs": "Returns liveness health check results (for Kubernetes liveness probes)"
+        },
+        {
+          "info": {
+            "name": "Helidon Readiness check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/health/ready"
+          },
+          "docs": "Returns readiness health check results (for Kubernetes readiness probes)"
+        },
+        {
+          "info": {
+            "name": "Helidon Startup check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/health/started"
+          },
+          "docs": "Returns startup health check results (for Kubernetes startup probes)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

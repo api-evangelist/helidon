@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Helidon Observe ( & Metrics) Health OpenAPI API",
+    "version": "4.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OpenAPI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Helidon OpenAPI document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/openapi"
+          },
+          "docs": "Returns the MicroProfile OpenAPI document for the application"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Helidon Observe ( & ) Health Metrics API",
+    "version": "4.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Helidon All metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/metrics",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns all application, vendor, and base metrics in Prometheus or JSON format"
+        },
+        {
+          "info": {
+            "name": "Helidon Application metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/metrics/application"
+          },
+          "docs": "Returns application-scoped metrics"
+        },
+        {
+          "info": {
+            "name": "Helidon Vendor metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/metrics/vendor"
+          },
+          "docs": "Returns vendor-specific metrics"
+        },
+        {
+          "info": {
+            "name": "Helidon Base metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/observe/metrics/base"
+          },
+          "docs": "Returns MicroProfile base metrics (JVM, thread, classloader, etc.)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
