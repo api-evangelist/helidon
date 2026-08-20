@@ -18,6 +18,14 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/helidon.png
 tags:
+  - Cloud-Native
+  - Frameworks
+  - Java
+  - MicroProfile
+  - Microservices
+  - Oracle
+  - Reactive
+tags_raw:
   - Cloud Native
   - Frameworks
   - Java
