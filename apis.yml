@@ -94,15 +94,15 @@ apis:
     url: https://helidon.io/docs/latest/#/about/prerequisites
   - type: JSONSchema
     url: json-schema/helidon-application-config.json
-- aid: helidon:helidon-openapi-api
-  name: Helidon OpenAPI API
-  description: The OpenAPI API from Helidon — 1 operation(s) for openapi.
+- aid: helidon:helidon-open-api-api
+  name: Helidon Open API
+  description: The Open API API from Helidon — 1 operation(s) for open api.
   humanURL: https://helidon.io/
   tags:
-  - OpenAPI
+  - Open API
   properties:
   - type: OpenAPI
-    url: openapi/helidon-openapi-api-openapi.yml
+    url: openapi/helidon-open-api-api-openapi.yml
   - type: Documentation
     url: https://helidon.io/docs/latest
   - type: GettingStarted
