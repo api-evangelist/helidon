@@ -30,7 +30,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/helidon.png
 tags:
   - Cloud-Native
-  - Frameworks
+  - Framework
   - Java
   - MicroProfile
   - Microservices
@@ -99,6 +99,8 @@ apis:
   description: The Open API API from Helidon — 1 operation(s) for open api.
   humanURL: https://helidon.io/
   tags:
+  - OpenAPI
+  tags_raw:
   - Open API
   properties:
   - type: OpenAPI
