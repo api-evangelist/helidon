@@ -1,10 +1,7 @@
 {
   "provider": "helidon",
   "sources": [
-    "helidon-health-api-openapi.yml",
-    "helidon-info-api-openapi.yml",
-    "helidon-metrics-api-openapi.yml",
-    "helidon-openapi-api-openapi.yml"
+    "_original/helidon-observe-openapi.yml"
   ],
   "outputs": [
     "helidon-health-api-openapi.yml",
@@ -12,9 +9,21 @@
     "helidon-metrics-api-openapi.yml",
     "helidon-openapi-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "helidon-observe-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "superseded outputs removed: helidon-open-api-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 4 total)"
+  ],
+  "skipped": [
+    "helidon-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "helidon-info-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "helidon-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "helidon-open-api-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
