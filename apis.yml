@@ -99,8 +99,6 @@ apis:
   description: The Open API API from Helidon — 1 operation(s) for open api.
   humanURL: https://helidon.io/
   tags:
-  - OpenAPI
-  tags_raw:
   - Open API
   properties:
   - type: OpenAPI
