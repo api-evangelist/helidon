@@ -110,6 +110,12 @@ apis:
   - type: JSONSchema
     url: json-schema/helidon-application-config.json
 common:
+  - type: Plans
+    url: plans/helidon-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/helidon-rate-limits.yml
+  - type: FinOps
+    url: finops/helidon-finops.yml
   - type: AgenticAccess
     url: agentic-access/helidon-agentic-access.yml
   - type: DomainSecurity
